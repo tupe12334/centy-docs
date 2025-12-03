@@ -1,0 +1,41 @@
+name: i18n Validation
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'blog/**'
+      - 'src/**/*.tsx'
+      - 'i18n/**'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'blog/**'
+      - 'src/**/*.tsx'
+      - 'i18n/**'
+
+jobs:
+  check-translations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check translation completeness
+        run: pnpm i18n:status
+
+      - name: Build all locales
+        run: pnpm build

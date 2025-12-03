@@ -30,7 +30,13 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'es', 'fr', 'he'],
+    localeConfigs: {
+      en: { label: 'English', direction: 'ltr', htmlLang: 'en-US' },
+      es: { label: 'Español', direction: 'ltr', htmlLang: 'es-ES' },
+      fr: { label: 'Français', direction: 'ltr', htmlLang: 'fr-FR' },
+      he: { label: 'עברית', direction: 'rtl', htmlLang: 'he-IL' },
+    },
   },
 
   presets: [
@@ -83,6 +89,10 @@ const config: Config = {
         {
           href: 'https://github.com/tupe12334/centy-docs',
           label: 'GitHub',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
       ],
