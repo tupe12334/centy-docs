@@ -14,8 +14,8 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here (update when Cloudflare Pages URL is known)
-  url: 'https://centy-docs.pages.dev',
+  // Production URL on Cloudflare Pages custom domain
+  url: 'https://docs.centy.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
 

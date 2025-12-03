@@ -45,3 +45,14 @@ pnpm-debug.log*
 
 # Wrangler
 .wrangler/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+!*.tfvars.example
+# Note: .terraform.lock.hcl should be committed for reproducible builds
+
+
+.playwright-mcp
