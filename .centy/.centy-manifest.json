@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "centyVersion": "0.1.0",
   "createdAt": "2025-12-03T18:11:23.813534+00:00",
-  "updatedAt": "2025-12-03T18:26:21.210323+00:00",
+  "updatedAt": "2025-12-03T21:43:18.686910+00:00",
   "managedFiles": [
     {
       "path": "README.md",
@@ -114,6 +114,62 @@
       "hash": "8ae0574b849cb2f35b8c64fd61e15637af06fbc4b8cac9947cacd92ffeb47922",
       "version": "0.1.0",
       "createdAt": "2025-12-03T18:26:21.210322+00:00",
+      "type": "file"
+    },
+    {
+      "path": "issues/cb7534f4-7764-4cc1-bdb4-d08d33853d3c/",
+      "hash": "",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:38:58.804733+00:00",
+      "type": "directory"
+    },
+    {
+      "path": "issues/cb7534f4-7764-4cc1-bdb4-d08d33853d3c/assets/",
+      "hash": "",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:38:58.804750+00:00",
+      "type": "directory"
+    },
+    {
+      "path": "issues/cb7534f4-7764-4cc1-bdb4-d08d33853d3c/issue.md",
+      "hash": "d154ba78e3e18972129932dc25da7747e55c8b2d862e909972f51616410a8e3e",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:38:58.804742+00:00",
+      "type": "file"
+    },
+    {
+      "path": "issues/cb7534f4-7764-4cc1-bdb4-d08d33853d3c/metadata.json",
+      "hash": "7ffd3095687c037a6b9b0c9cdd8ea7aa8c02a8bd9f1786388a8b069000a68dc8",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:38:58.804748+00:00",
+      "type": "file"
+    },
+    {
+      "path": "issues/e663ff94-03e3-40c6-923a-03db9614d567/",
+      "hash": "",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:42:27.672111+00:00",
+      "type": "directory"
+    },
+    {
+      "path": "issues/e663ff94-03e3-40c6-923a-03db9614d567/assets/",
+      "hash": "",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:42:27.672125+00:00",
+      "type": "directory"
+    },
+    {
+      "path": "issues/e663ff94-03e3-40c6-923a-03db9614d567/issue.md",
+      "hash": "52d9aab568bb7ae748247fb065608d933a75d2f370820329a00c9b8f3aef27c5",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:43:18.686899+00:00",
+      "type": "file"
+    },
+    {
+      "path": "issues/e663ff94-03e3-40c6-923a-03db9614d567/metadata.json",
+      "hash": "06b4a9625e5a5b60b9c692ed98fe26378da301a11d6a685f367231a3ad022a75",
+      "version": "0.1.0",
+      "createdAt": "2025-12-03T21:43:18.686909+00:00",
       "type": "file"
     },
     {
