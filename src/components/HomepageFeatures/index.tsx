@@ -13,41 +13,41 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: (
-      <Translate id="homepage.features.easyToUse.title">Easy to Use</Translate>
+      <Translate id="homepage.features.fileBased.title">File-Based Storage</Translate>
     ),
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
-      <Translate id="homepage.features.easyToUse.description">
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+      <Translate id="homepage.features.fileBased.description">
+        All issues and documentation live in your repository as structured files.
+        Version controlled, portable, and always accessible.
       </Translate>
     ),
   },
   {
     title: (
-      <Translate id="homepage.features.focusOnWhatMatters.title">
-        Focus on What Matters
+      <Translate id="homepage.features.aiNative.title">
+        AI-Native Design
       </Translate>
     ),
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
-      <Translate id="homepage.features.focusOnWhatMatters.description">
-        Docusaurus lets you focus on your docs, and we'll do the chores. Go
-        ahead and move your docs into the docs directory.
+      <Translate id="homepage.features.aiNative.description">
+        Built from the ground up for LLM integration. AI assistants can read,
+        create, and manage issues seamlessly through the CLI.
       </Translate>
     ),
   },
   {
     title: (
-      <Translate id="homepage.features.poweredByReact.title">
-        Powered by React
+      <Translate id="homepage.features.templates.title">
+        Powerful Templates
       </Translate>
     ),
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
-      <Translate id="homepage.features.poweredByReact.description">
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+      <Translate id="homepage.features.templates.description">
+        Use Handlebars-powered templates for consistent issue and documentation
+        creation. Customize workflows to match your team's needs.
       </Translate>
     ),
   },

@@ -1,6 +1,9 @@
 {
   "homepage.cta.button": {
-    "message": "Docusaurus Tutorial - 5min"
+    "message": "Get Started"
+  },
+  "homepage.tagline": {
+    "message": "Documentation for Centy"
   },
   "homepage.title": {
     "message": "Hello from {title}",
@@ -10,23 +13,23 @@
     "message": "Documentation for Centy - your AI-powered issue tracking system",
     "description": "The homepage meta description"
   },
-  "homepage.features.easyToUse.title": {
-    "message": "Easy to Use"
+  "homepage.features.fileBased.title": {
+    "message": "File-Based Storage"
   },
-  "homepage.features.easyToUse.description": {
-    "message": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+  "homepage.features.fileBased.description": {
+    "message": "All issues and documentation live in your repository as structured files. Version controlled, portable, and always accessible."
   },
-  "homepage.features.focusOnWhatMatters.title": {
-    "message": "Focus on What Matters"
+  "homepage.features.aiNative.title": {
+    "message": "AI-Native Design"
   },
-  "homepage.features.focusOnWhatMatters.description": {
-    "message": "Docusaurus lets you focus on your docs, and we'll do the chores. Go ahead and move your docs into the docs directory."
+  "homepage.features.aiNative.description": {
+    "message": "Built from the ground up for LLM integration. AI assistants can read, create, and manage issues seamlessly through the CLI."
   },
-  "homepage.features.poweredByReact.title": {
-    "message": "Powered by React"
+  "homepage.features.templates.title": {
+    "message": "Powerful Templates"
   },
-  "homepage.features.poweredByReact.description": {
-    "message": "Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same header and footer."
+  "homepage.features.templates.description": {
+    "message": "Use Handlebars-powered templates for consistent issue and documentation creation. Customize workflows to match your team's needs."
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",

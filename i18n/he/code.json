@@ -1,32 +1,35 @@
 {
   "homepage.cta.button": {
-    "message": "Docusaurus Tutorial - 5min"
+    "message": "התחל עכשיו"
+  },
+  "homepage.tagline": {
+    "message": "תיעוד עבור Centy"
   },
   "homepage.title": {
-    "message": "Hello from {title}",
+    "message": "ברוכים הבאים ל-{title}",
     "description": "The homepage title"
   },
   "homepage.description": {
-    "message": "Documentation for Centy - your AI-powered issue tracking system",
+    "message": "תיעוד עבור Centy - מערכת מעקב משימות מונעת בינה מלאכותית",
     "description": "The homepage meta description"
   },
-  "homepage.features.easyToUse.title": {
-    "message": "Easy to Use"
+  "homepage.features.fileBased.title": {
+    "message": "אחסון מבוסס קבצים"
   },
-  "homepage.features.easyToUse.description": {
-    "message": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+  "homepage.features.fileBased.description": {
+    "message": "כל המשימות והתיעוד נמצאים בריפוזיטורי שלך כקבצים מובנים. בקרת גרסאות, ניידות ונגישות תמיד."
   },
-  "homepage.features.focusOnWhatMatters.title": {
-    "message": "Focus on What Matters"
+  "homepage.features.aiNative.title": {
+    "message": "תכנון מותאם לבינה מלאכותית"
   },
-  "homepage.features.focusOnWhatMatters.description": {
-    "message": "Docusaurus lets you focus on your docs, and we'll do the chores. Go ahead and move your docs into the docs directory."
+  "homepage.features.aiNative.description": {
+    "message": "נבנה מהיסוד לשילוב עם LLM. עוזרי AI יכולים לקרוא, ליצור ולנהל משימות בצורה חלקה דרך ה-CLI."
   },
-  "homepage.features.poweredByReact.title": {
-    "message": "Powered by React"
+  "homepage.features.templates.title": {
+    "message": "תבניות עוצמתיות"
   },
-  "homepage.features.poweredByReact.description": {
-    "message": "Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same header and footer."
+  "homepage.features.templates.description": {
+    "message": "השתמש בתבניות Handlebars ליצירת משימות ותיעוד עקביים. התאם תהליכי עבודה לצרכי הצוות שלך."
   },
   "theme.ErrorPageContent.title": {
     "message": "This page crashed.",

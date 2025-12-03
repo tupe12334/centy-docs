@@ -1,32 +1,35 @@
 {
   "homepage.cta.button": {
-    "message": "Docusaurus Tutorial - 5min"
+    "message": "Comenzar"
+  },
+  "homepage.tagline": {
+    "message": "Documentación para Centy"
   },
   "homepage.title": {
-    "message": "Hello from {title}",
+    "message": "Hola desde {title}",
     "description": "The homepage title"
   },
   "homepage.description": {
-    "message": "Documentation for Centy - your AI-powered issue tracking system",
+    "message": "Documentación para Centy - tu sistema de seguimiento de issues con IA",
     "description": "The homepage meta description"
   },
-  "homepage.features.easyToUse.title": {
-    "message": "Easy to Use"
+  "homepage.features.fileBased.title": {
+    "message": "Almacenamiento Basado en Archivos"
   },
-  "homepage.features.easyToUse.description": {
-    "message": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+  "homepage.features.fileBased.description": {
+    "message": "Todos los issues y documentación viven en tu repositorio como archivos estructurados. Control de versiones, portabilidad y siempre accesible."
   },
-  "homepage.features.focusOnWhatMatters.title": {
-    "message": "Focus on What Matters"
+  "homepage.features.aiNative.title": {
+    "message": "Diseño Nativo para IA"
   },
-  "homepage.features.focusOnWhatMatters.description": {
-    "message": "Docusaurus lets you focus on your docs, and we'll do the chores. Go ahead and move your docs into the docs directory."
+  "homepage.features.aiNative.description": {
+    "message": "Construido desde cero para integración con LLM. Los asistentes de IA pueden leer, crear y gestionar issues sin problemas a través del CLI."
   },
-  "homepage.features.poweredByReact.title": {
-    "message": "Powered by React"
+  "homepage.features.templates.title": {
+    "message": "Plantillas Potentes"
   },
-  "homepage.features.poweredByReact.description": {
-    "message": "Extend or customize your website layout by reusing React. Docusaurus can be extended while reusing the same header and footer."
+  "homepage.features.templates.description": {
+    "message": "Usa plantillas con Handlebars para crear issues y documentación consistentes. Personaliza los flujos de trabajo según las necesidades de tu equipo."
   },
   "theme.ErrorPageContent.title": {
     "message": "Esta página ha fallado.",
