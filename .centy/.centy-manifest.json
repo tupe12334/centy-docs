@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "centyVersion": "0.1.0",
   "createdAt": "2025-12-03T18:11:23.813534+00:00",
-  "updatedAt": "2025-12-03T18:18:55.290947+00:00",
+  "updatedAt": "2025-12-03T18:21:07.318843+00:00",
   "managedFiles": [
     {
       "path": "README.md",
@@ -48,16 +48,16 @@
     },
     {
       "path": "issues/02d21053-5b43-4c65-b3b1-0149c3e35fc2/issue.md",
-      "hash": "20f4e01b7a0d735a0c056a554e7fb5a98d21d5ce210103e8963808946d783863",
+      "hash": "6a6b30737871b54eba6e27ce73d995682a829b7d7c41fb7cdb67acbae2193981",
       "version": "0.1.0",
-      "createdAt": "2025-12-03T18:18:55.290940+00:00",
+      "createdAt": "2025-12-03T18:21:07.318837+00:00",
       "type": "file"
     },
     {
       "path": "issues/02d21053-5b43-4c65-b3b1-0149c3e35fc2/metadata.json",
-      "hash": "17ee02551cff9c981dcf34bbc3a546494049c8666162a8891f96c26eced54197",
+      "hash": "94ab5c0941f5752f60e5c17595e0ebac69f52e055360fa18afc6bb1c7719c75f",
       "version": "0.1.0",
-      "createdAt": "2025-12-03T18:18:55.290945+00:00",
+      "createdAt": "2025-12-03T18:21:07.318843+00:00",
       "type": "file"
     },
     {
