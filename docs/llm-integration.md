@@ -123,26 +123,20 @@ AI assistants can read the `.centy/` folder to understand:
    - Technical decisions
    - API documentation
 
-## Manifest Synchronization
+## Manifest
 
-The `.centy-manifest.json` file tracks all managed files:
+The `.centy-manifest.json` file tracks project metadata:
 
 ```json
 {
   "schemaVersion": 1,
   "centyVersion": "0.1.0",
-  "managedFiles": [
-    {
-      "path": "issues/abc-123/issue.md",
-      "hash": "sha256...",
-      "version": "0.1.0",
-      "type": "file"
-    }
-  ]
+  "createdAt": "2025-01-01T00:00:00Z",
+  "updatedAt": "2025-01-01T00:00:00Z"
 }
 ```
 
-AI assistants should **never** modify this file directly. The CLI automatically updates it when issues are created, modified, or deleted.
+AI assistants should **never** modify this file directly. The CLI automatically updates it when the project is initialized or modified.
 
 ## Integration Examples
 
