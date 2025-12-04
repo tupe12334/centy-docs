@@ -14,7 +14,7 @@ Get Centy up and running in your development environment.
 ## Install via pnpm (Recommended)
 
 ```bash
-pnpm add -g centy-cli
+pnpm add -g centy
 ```
 
 ### Run without Installing
@@ -22,20 +22,20 @@ pnpm add -g centy-cli
 You can also run Centy directly without global installation:
 
 ```bash
-pnpm dlx centy-cli init
-pnpm dlx centy-cli create issue
+pnpm dlx centy init
+pnpm dlx centy create issue
 ```
 
 ## Install via npm
 
 ```bash
-npm install -g centy-cli
+npm install -g centy
 ```
 
 ## Install via yarn
 
 ```bash
-yarn global add centy-cli
+yarn global add centy
 ```
 
 ## Verify Installation
@@ -63,13 +63,13 @@ To update to the latest version:
 
 ```bash
 # pnpm (recommended)
-pnpm update -g centy-cli
+pnpm update -g centy
 
 # npm
-npm update -g centy-cli
+npm update -g centy
 
 # yarn
-yarn global upgrade centy-cli
+yarn global upgrade centy
 ```
 
 ## Uninstalling
@@ -78,13 +78,13 @@ To remove Centy from your system:
 
 ```bash
 # pnpm
-pnpm remove -g centy-cli
+pnpm remove -g centy
 
 # npm
-npm uninstall -g centy-cli
+npm uninstall -g centy
 
 # yarn
-yarn global remove centy-cli
+yarn global remove centy
 ```
 
 ## Next Steps
