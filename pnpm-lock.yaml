@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@centy-io/assets':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@docusaurus/core':
         specifier: 3.9.2
         version: 3.9.2(@mdx-js/react@3.1.1(@types/react@19.2.7)(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(typescript@5.6.3)
@@ -722,6 +725,10 @@ packages:
   '@babel/types@7.28.5':
     resolution: {integrity: sha512-qQ5m48eI/MFLQ5PxQj4PFaprjyCTLI37ElWMmNs0K8Lk3dVeOdNpB3ks8jc7yM5CDmVC73eMVk/trk3fgmrUpA==}
     engines: {node: '>=6.9.0'}
+
+  '@centy-io/assets@0.0.1':
+    resolution: {integrity: sha512-gNbLxupnbSyS2d/sHJHriEP+geDX8Yu0FcrD7BcZC0vld/nLigK0qK78WhU1VRwrmO5NZjcwPG9bP73nMOmiiw==}
+    engines: {node: '>=20.0.0'}
 
   '@cloudflare/kv-asset-handler@0.4.1':
     resolution: {integrity: sha512-Nu8ahitGFFJztxUml9oD/DLb7Z28C8cd8F46IVQ7y5Btz575pvMY8AqZsXkX7Gds29eCKdMgIHjIvzskHgPSFg==}
@@ -6336,6 +6343,8 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
+
+  '@centy-io/assets@0.0.1': {}
 
   '@cloudflare/kv-asset-handler@0.4.1':
     dependencies:

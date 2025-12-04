@@ -19,6 +19,7 @@
     "pages:deploy": "pnpm build && wrangler pages deploy build"
   },
   "dependencies": {
+    "@centy-io/assets": "^0.0.1",
     "@docusaurus/core": "3.9.2",
     "@docusaurus/preset-classic": "3.9.2",
     "@mdx-js/react": "^3.0.0",
