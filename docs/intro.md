@@ -35,10 +35,10 @@ Use Handlebars-powered templates for consistent issue and documentation creation
 
 ```bash
 # Install Centy CLI (pnpm recommended)
-pnpm add -g centy-cli
+pnpm add -g centy
 
 # Or run directly without installing
-pnpm dlx centy-cli init
+pnpm dlx centy init
 
 # Initialize in your project
 centy init
