@@ -8,13 +8,12 @@ Complete reference for all Centy CLI commands.
 
 ## Global Options
 
-These options are available for all commands:
+These options are available for most commands:
 
 | Option | Description |
 |--------|-------------|
 | `--help`, `-h` | Show help for a command |
 | `--version`, `-v` | Show Centy version |
-| `--quiet`, `-q` | Suppress non-essential output |
 | `--json` | Output results as JSON |
 
 ## Project Management
@@ -31,30 +30,137 @@ centy init [options]
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--priority-levels <n>` | Number of priority levels | `3` |
-| `--default-state <state>` | Default state for new issues | `"open"` |
-| `--force` | Overwrite existing configuration | `false` |
+| `--force`, `-f` | Skip interactive prompts and use defaults | `false` |
 
 **Examples:**
 
 ```bash
 centy init
-centy init --priority-levels 5
-centy init --default-state backlog
+centy init --force
 ```
 
-### `centy status`
+### `centy info`
 
-Show project status and statistics.
+Get Centy daemon info and version.
 
 ```bash
-centy status
+centy info [options]
 ```
 
-**Output includes:**
-- Total issues by status
-- Issues by priority
-- Recent activity
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+### `centy version`
+
+Get project version info and comparison with daemon.
+
+```bash
+centy version [options]
+```
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+### `centy config`
+
+Get the project configuration.
+
+```bash
+centy config [options]
+```
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+### `centy manifest`
+
+Get the project manifest.
+
+```bash
+centy manifest [options]
+```
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+### `centy update`
+
+Update project to a target version (runs migrations).
+
+```bash
+centy update [options]
+```
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--target`, `-t` | Target version to update to | Daemon version |
+| `--force`, `-f` | Skip confirmation prompt | `false` |
+
+**Examples:**
+
+```bash
+centy update
+centy update --target 0.2.0
+centy update --force
+```
+
+## Daemon Commands
+
+### `centy start`
+
+Start the Centy daemon.
+
+```bash
+centy start [options]
+```
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--foreground`, `-f` | Run daemon in foreground (blocks terminal) |
+
+### `centy restart`
+
+Restart the Centy daemon.
+
+```bash
+centy restart [options]
+```
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--delay`, `-d` | Delay in seconds before restart | `0` |
+
+### `centy shutdown`
+
+Shutdown the Centy daemon gracefully.
+
+```bash
+centy shutdown [options]
+```
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--delay`, `-d` | Delay in seconds before shutdown | `0` |
 
 ## Issue Commands
 
@@ -63,25 +169,25 @@ centy status
 Create a new issue.
 
 ```bash
-centy create issue [title] [options]
+centy create issue [options]
 ```
 
 **Options:**
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--priority <n>` | Priority level | Config default |
-| `--status <state>` | Initial status | Config default |
-| `--template <name>` | Template to use | None |
-| `--description <text>` | Issue description | None |
+| `--title`, `-t` | Issue title | Interactive prompt |
+| `--description`, `-d` | Issue description | None |
+| `--priority`, `-p` | Priority level (low/medium/high) | Config default |
+| `--status`, `-s` | Initial status | `open` |
 
 **Examples:**
 
 ```bash
 centy create issue
-centy create issue "Fix login bug"
-centy create issue "Fix login bug" --priority 1
-centy create issue "Add dark mode" --template feature-request
+centy create issue --title "Fix login bug"
+centy create issue --title "Fix login bug" --priority high
+centy create issue -t "Add dark mode" -d "Implement dark theme support" -p medium
 ```
 
 ### `centy list issues`
@@ -96,37 +202,43 @@ centy list issues [options]
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--status <state>` | Filter by status | All |
-| `--priority <n>` | Filter by priority | All |
-| `--sort <field>` | Sort by field | `created` |
-| `--limit <n>` | Limit results | All |
+| `--status`, `-s` | Filter by status | All |
+| `--priority`, `-p` | Filter by priority level (1 = highest) | All |
+| `--json` | Output as JSON | `false` |
 
 **Examples:**
 
 ```bash
 centy list issues
 centy list issues --status open
-centy list issues --priority 1 --status in-progress
-centy list issues --sort updated --limit 10
+centy list issues --priority 1
+centy list issues --json
 ```
 
-### `centy show issue`
+### `centy get issue`
 
 Display details of a specific issue.
 
 ```bash
-centy show issue <id>
+centy get issue <id> [options]
 ```
 
 **Arguments:**
 
 - `id`: Issue display number or UUID
 
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
 **Examples:**
 
 ```bash
-centy show issue 1
-centy show issue 6a740dbd-ec2d-45f9-9927-fdcb6c3d3801
+centy get issue 1
+centy get issue 6a740dbd-ec2d-45f9-9927-fdcb6c3d3801
+centy get issue 1 --json
 ```
 
 ### `centy update issue`
@@ -137,41 +249,25 @@ Update issue metadata.
 centy update issue <id> [options]
 ```
 
+**Arguments:**
+
+- `id`: Issue display number or UUID
+
 **Options:**
 
 | Option | Description |
 |--------|-------------|
-| `--status <state>` | New status |
-| `--priority <n>` | New priority |
-| `--<field> <value>` | Update custom field |
+| `--title`, `-t` | New title |
+| `--description`, `-d` | New description |
+| `--status`, `-s` | New status (e.g., open, in-progress, closed) |
+| `--priority`, `-p` | New priority (low/medium/high or 1-3) |
 
 **Examples:**
 
 ```bash
 centy update issue 1 --status in-progress
-centy update issue 1 --priority 2
-centy update issue 1 --status review --assignee "john"
-```
-
-### `centy close issue`
-
-Close an issue.
-
-```bash
-centy close issue <id> [options]
-```
-
-**Options:**
-
-| Option | Description |
-|--------|-------------|
-| `--comment <text>` | Closing comment |
-
-**Examples:**
-
-```bash
-centy close issue 1
-centy close issue 1 --comment "Fixed in v2.1.0"
+centy update issue 1 --status closed
+centy update issue 1 --title "Updated title" --priority high
 ```
 
 ### `centy delete issue`
@@ -182,39 +278,21 @@ Delete an issue permanently.
 centy delete issue <id> [options]
 ```
 
+**Arguments:**
+
+- `id`: Issue display number or UUID
+
 **Options:**
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--force` | Skip confirmation | `false` |
+| `--force`, `-f` | Skip confirmation | `false` |
 
 **Examples:**
 
 ```bash
 centy delete issue 1
 centy delete issue 1 --force
-```
-
-### `centy search issues`
-
-Search issues by content.
-
-```bash
-centy search issues <query> [options]
-```
-
-**Options:**
-
-| Option | Description |
-|--------|-------------|
-| `--status <state>` | Filter by status |
-| `--priority <n>` | Filter by priority |
-
-**Examples:**
-
-```bash
-centy search issues "login"
-centy search issues "authentication" --status open
 ```
 
 ## Documentation Commands
@@ -224,21 +302,24 @@ centy search issues "authentication" --status open
 Create a new document.
 
 ```bash
-centy create doc <title> [options]
+centy create doc [options]
 ```
 
 **Options:**
 
-| Option | Description |
-|--------|-------------|
-| `--template <name>` | Template to use |
-| `--slug <slug>` | URL-friendly slug |
+| Option | Description | Required |
+|--------|-------------|----------|
+| `--title`, `-t` | Doc title | Yes |
+| `--content`, `-c` | Doc content (markdown) | No |
+| `--slug` | Custom URL-friendly slug | No (auto-generated) |
+| `--template` | Template name to use | No |
 
 **Examples:**
 
 ```bash
-centy create doc "API Reference"
-centy create doc "Users API" --template api --slug users
+centy create doc --title "API Reference"
+centy create doc -t "Getting Started" -c "# Welcome"
+centy create doc --title "Users API" --slug users
 ```
 
 ### `centy list docs`
@@ -246,15 +327,65 @@ centy create doc "Users API" --template api --slug users
 List all documents.
 
 ```bash
-centy list docs
+centy list docs [options]
 ```
 
-### `centy show doc`
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+### `centy get doc`
 
 Display a document.
 
 ```bash
-centy show doc <slug>
+centy get doc <slug> [options]
+```
+
+**Arguments:**
+
+- `slug`: Document slug
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+**Examples:**
+
+```bash
+centy get doc getting-started
+centy get doc api-reference --json
+```
+
+### `centy update doc`
+
+Update an existing document.
+
+```bash
+centy update doc <slug> [options]
+```
+
+**Arguments:**
+
+- `slug`: Document slug
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--title`, `-t` | New title |
+| `--content`, `-c` | New content (markdown) |
+| `--new-slug` | Rename to a new slug |
+
+**Examples:**
+
+```bash
+centy update doc getting-started --title "New Title"
+centy update doc api-docs --new-slug api-reference
 ```
 
 ### `centy delete doc`
@@ -265,138 +396,189 @@ Delete a document.
 centy delete doc <slug> [options]
 ```
 
+**Arguments:**
+
+- `slug`: Document slug
+
 **Options:**
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--force` | Skip confirmation | `false` |
+| `--force`, `-f` | Skip confirmation | `false` |
 
 ## Asset Commands
 
 ### `centy add asset`
 
-Add an asset to an issue.
+Add an asset to an issue or as a shared asset.
 
 ```bash
-centy add asset <issue-id> <file-path>
+centy add asset <file> [options]
 ```
+
+**Arguments:**
+
+- `file`: Path to the file to add
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--issue`, `-i` | Issue ID or display number to attach the asset to |
+| `--shared`, `-s` | Add as a shared asset (accessible by all issues) |
+| `--name`, `-n` | Custom filename (defaults to original filename) |
 
 **Examples:**
 
 ```bash
-centy add asset 1 ./screenshot.png
-centy add asset 1 ./error-log.txt
+centy add asset screenshot.png --issue 1
+centy add asset diagram.svg --shared
+centy add asset ./error-log.txt -i 1 -n "debug-log.txt"
 ```
 
 ### `centy list assets`
 
-List assets attached to an issue.
+List assets for an issue or shared assets.
 
 ```bash
-centy list assets <issue-id>
-```
-
-### `centy remove asset`
-
-Remove an asset from an issue.
-
-```bash
-centy remove asset <issue-id> <filename>
-```
-
-## Template Commands
-
-### `centy list templates`
-
-List available templates.
-
-```bash
-centy list templates [options]
+centy list assets [options]
 ```
 
 **Options:**
 
 | Option | Description |
 |--------|-------------|
-| `--type <type>` | Filter by type (`issue` or `doc`) |
-
-### `centy show template`
-
-Display template content.
-
-```bash
-centy show template <name>
-```
-
-### `centy validate template`
-
-Validate template syntax.
-
-```bash
-centy validate template <name>
-```
-
-## Maintenance Commands
-
-### `centy repair`
-
-Repair Centy data structures.
-
-```bash
-centy repair <target>
-```
-
-**Targets:**
-
-- `manifest`: Rebuild the manifest file
-- `metadata`: Repair issue metadata
-- `all`: Repair everything
+| `--issue`, `-i` | Issue ID or display number |
+| `--shared`, `-s` | List only shared assets |
+| `--include-shared` | Include shared assets when listing issue assets |
+| `--json` | Output as JSON |
 
 **Examples:**
 
 ```bash
-centy repair manifest
-centy repair all
+centy list assets --issue 1
+centy list assets --shared
+centy list assets -i 1 --include-shared
 ```
 
-### `centy export`
+### `centy get asset`
 
-Export issues to various formats.
+Get an asset and save it to a file.
 
 ```bash
-centy export [options]
+centy get asset <filename> [options]
 ```
+
+**Arguments:**
+
+- `filename`: Asset filename
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--issue`, `-i` | Issue ID or display number |
+| `--shared`, `-s` | Get a shared asset |
+| `--output`, `-o` | Output file path (defaults to asset filename) |
+
+**Examples:**
+
+```bash
+centy get asset screenshot.png --issue 1
+centy get asset logo.svg --shared --output ./my-logo.svg
+```
+
+### `centy delete asset`
+
+Delete an asset.
+
+```bash
+centy delete asset <filename> [options]
+```
+
+**Arguments:**
+
+- `filename`: Asset filename
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--issue`, `-i` | Issue ID or display number |
+| `--shared`, `-s` | Delete a shared asset |
+| `--force`, `-f` | Skip confirmation prompt |
+
+**Examples:**
+
+```bash
+centy delete asset screenshot.png --issue 1
+centy delete asset logo.svg --shared --force
+```
+
+## Project Commands
+
+### `centy list projects`
+
+List all tracked Centy projects.
+
+```bash
+centy list projects [options]
+```
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--include-stale` | Include projects where path no longer exists |
+| `--json` | Output as JSON |
+
+### `centy get project`
+
+Get info about a specific project.
+
+```bash
+centy get project [path] [options]
+```
+
+**Arguments:**
+
+- `path`: Path to the project (defaults to current directory)
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--json` | Output as JSON |
+
+### `centy register project`
+
+Register a project for tracking.
+
+```bash
+centy register project [path]
+```
+
+**Arguments:**
+
+- `path`: Path to the project (defaults to current directory)
+
+### `centy untrack project`
+
+Remove a project from tracking.
+
+```bash
+centy untrack project [path] [options]
+```
+
+**Arguments:**
+
+- `path`: Path to the project (defaults to current directory)
 
 **Options:**
 
 | Option | Description | Default |
 |--------|-------------|---------|
-| `--format <format>` | Output format (`json`, `csv`, `md`) | `json` |
-| `--output <file>` | Output file | stdout |
-| `--status <state>` | Filter by status | All |
-
-**Examples:**
-
-```bash
-centy export --format json > issues.json
-centy export --format csv --output issues.csv
-centy export --format md --status open
-```
-
-### `centy import`
-
-Import issues from external sources.
-
-```bash
-centy import <file> [options]
-```
-
-**Options:**
-
-| Option | Description |
-|--------|-------------|
-| `--format <format>` | Input format (`json`, `csv`, `github`) |
-| `--dry-run` | Preview without importing |
+| `--force`, `-f` | Skip confirmation prompt | `false` |
 
 ## Exit Codes
 
@@ -405,18 +587,6 @@ centy import <file> [options]
 | `0` | Success |
 | `1` | General error |
 | `2` | Invalid arguments |
-| `3` | Issue not found |
-| `4` | Configuration error |
-| `5` | File system error |
-
-## Environment Variables
-
-| Variable | Description |
-|----------|-------------|
-| `CENTY_CONFIG` | Path to config file |
-| `CENTY_PRIORITY_LEVELS` | Override priority levels |
-| `CENTY_DEFAULT_STATE` | Override default state |
-| `NO_COLOR` | Disable colored output |
 
 ## Next Steps
 
