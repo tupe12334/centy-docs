@@ -28,7 +28,7 @@ This command generates static content into the `build` directory.
 
 1. Go to [Cloudflare Pages Dashboard](https://dash.cloudflare.com/?to=/:account/pages)
 2. Click "Create a project" > "Connect to Git"
-3. Select the `tupe12334/centy-docs` repository
+3. Select the `centy-io/centy-docs` repository
 4. Configure build settings:
    - **Framework preset**: None (or Docusaurus if available)
    - **Build command**: `pnpm build`

@@ -1,6 +1,6 @@
 # Centy Project
 
-This folder is managed by [Centy](https://github.com/tupe12334/centy).
+This folder is managed by [Centy](https://github.com/centy-io/centy).
 
 ## Important: LLM Instructions
 

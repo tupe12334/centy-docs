@@ -20,7 +20,7 @@ const config: Config = {
   baseUrl: '/',
 
   // GitHub config
-  organizationName: 'tupe12334',
+  organizationName: 'centy-io',
   projectName: 'centy-docs',
 
   onBrokenLinks: 'throw',
@@ -39,7 +39,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/tupe12334/centy-docs/tree/main/',
+          editUrl: 'https://github.com/centy-io/centy-docs/tree/main/',
         },
         blog: false,
         theme: {
@@ -69,7 +69,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/tupe12334/centy-docs',
+          href: 'https://github.com/centy-io/centy-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -92,7 +92,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/tupe12334/centy-docs',
+              href: 'https://github.com/centy-io/centy-docs',
             },
           ],
         },
