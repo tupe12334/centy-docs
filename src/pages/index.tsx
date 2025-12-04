@@ -12,22 +12,29 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
+    <header className={clsx('hero', styles.heroBanner)}>
+      <div className={clsx('container', styles.heroContent)}>
+        <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
         </Heading>
-        <p className="hero__subtitle">
+        <p className={styles.heroSubtitle}>
           <Translate id="homepage.tagline">
-            Documentation for Centy
+            The AI-native issue tracking system that lives in your repository
           </Translate>
         </p>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={styles.primaryButton}
             to="/docs/">
-            <Translate id="homepage.cta.button">
+            <Translate id="homepage.cta.getStarted">
               Get Started
+            </Translate>
+          </Link>
+          <Link
+            className={styles.secondaryButton}
+            to="https://github.com/centy-io/centy">
+            <Translate id="homepage.cta.github">
+              View on GitHub
             </Translate>
           </Link>
         </div>
@@ -42,12 +49,12 @@ export default function Home(): ReactNode {
     <Layout
       title={translate({
         id: 'homepage.title',
-        message: 'Hello from {title}',
+        message: 'AI-Native Issue Tracking',
         description: 'The homepage title',
-      }).replace('{title}', siteConfig.title)}
+      })}
       description={translate({
         id: 'homepage.description',
-        message: 'Documentation for Centy - your AI-powered issue tracking system',
+        message: 'Centy is an AI-native issue tracking system that lives in your repository. File-based, version controlled, and built for developers.',
         description: 'The homepage meta description',
       })}>
       <HomepageHeader />

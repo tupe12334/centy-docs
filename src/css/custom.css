@@ -4,29 +4,42 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Modern Centy color palette */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary - Modern teal/cyan */
+  --ifm-color-primary: #0891b2;
+  --ifm-color-primary-dark: #0782a1;
+  --ifm-color-primary-darker: #077a98;
+  --ifm-color-primary-darkest: #06647d;
+  --ifm-color-primary-light: #09a0c3;
+  --ifm-color-primary-lighter: #0aa8cc;
+  --ifm-color-primary-lightest: #0cbde6;
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Enhanced typography */
+  --ifm-heading-font-weight: 700;
+  --ifm-font-weight-semibold: 600;
+
+  /* Subtle backgrounds */
+  --ifm-background-surface-color: #f8fafc;
+  --ifm-card-background-color: #ffffff;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark mode - lighter, more vibrant teal */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #22d3ee;
+  --ifm-color-primary-dark: #12c8e3;
+  --ifm-color-primary-darker: #0fbdd6;
+  --ifm-color-primary-darkest: #0c9bb0;
+  --ifm-color-primary-light: #43daf1;
+  --ifm-color-primary-lighter: #54def3;
+  --ifm-color-primary-lightest: #7fe7f6;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-background-surface-color: #1e293b;
+  --ifm-card-background-color: #0f172a;
 }
 
 /* RTL Support for Hebrew */
@@ -34,4 +47,52 @@
 [dir='rtl'] code {
   direction: ltr;
   text-align: left;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced link transitions */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Navbar enhancements */
+.navbar {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .navbar {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer styling */
+.footer {
+  background: var(--ifm-color-primary-darkest);
+}
+
+.footer--dark {
+  --ifm-footer-background-color: #0f172a;
+}
+
+/* Button enhancements */
+.button {
+  transition: all 0.2s ease;
+}
+
+/* Code block enhancements */
+pre {
+  border-radius: 8px;
+}
+
+/* Sidebar enhancements */
+.menu__link {
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.menu__link--active {
+  font-weight: 600;
 }

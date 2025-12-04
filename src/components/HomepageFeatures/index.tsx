@@ -6,7 +6,7 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: ReactNode;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: ReactNode;
 };
 
@@ -15,7 +15,7 @@ const FeatureList: FeatureItem[] = [
     title: (
       <Translate id="homepage.features.fileBased.title">File-Based Storage</Translate>
     ),
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    icon: '📁',
     description: (
       <Translate id="homepage.features.fileBased.description">
         All issues and documentation live in your repository as structured files.
@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
         AI-Native Design
       </Translate>
     ),
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    icon: '🤖',
     description: (
       <Translate id="homepage.features.aiNative.description">
         Built from the ground up for LLM integration. AI assistants can read,
@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
         Powerful Templates
       </Translate>
     ),
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    icon: '⚡',
     description: (
       <Translate id="homepage.features.templates.description">
         Use Handlebars-powered templates for consistent issue and documentation
@@ -53,15 +53,17 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, icon, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>
+          {icon}
+        </div>
+        <div className={styles.featureContent}>
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -71,6 +73,18 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.sectionHeader}>
+          <Heading as="h2" className={styles.sectionTitle}>
+            <Translate id="homepage.features.sectionTitle">
+              Why Centy?
+            </Translate>
+          </Heading>
+          <p className={styles.sectionSubtitle}>
+            <Translate id="homepage.features.sectionSubtitle">
+              A modern approach to issue tracking designed for developers and AI alike
+            </Translate>
+          </p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
