@@ -7,7 +7,34 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Centy Docs',
   tagline: 'Documentation for Centy',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.ico',
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'icon',
+        href: '/img/favicon.svg',
+        type: 'image/svg+xml',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'apple-touch-icon',
+        href: '/img/apple-touch-icon.png',
+      },
+    },
+  ],
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
