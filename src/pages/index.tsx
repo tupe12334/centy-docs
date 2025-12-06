@@ -32,7 +32,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className={styles.secondaryButton}
-            to="https://github.com/centy-io/centy">
+            to="https://github.com/centy-io">
             <Translate id="homepage.cta.github">
               View on GitHub
             </Translate>
