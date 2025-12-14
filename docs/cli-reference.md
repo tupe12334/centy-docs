@@ -580,6 +580,180 @@ centy untrack project [path] [options]
 |--------|-------------|---------|
 | `--force`, `-f` | Skip confirmation prompt | `false` |
 
+## Organization Commands
+
+Organizations let you group related projects together, similar to how GitHub organizes repositories under organizations like `centy-io/centy-daemon`.
+
+### `centy create org`
+
+Create a new organization to group projects.
+
+```bash
+centy create org <name> [options]
+```
+
+**Aliases:** `centy create organization`
+
+**Arguments:**
+
+- `name`: Organization display name
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--slug`, `-s` | Custom URL-friendly slug | Auto-generated from name |
+| `--description`, `-d` | Organization description | None |
+| `--json` | Output as JSON | `false` |
+
+**Examples:**
+
+```bash
+centy create org "My Company"
+centy create org "Centy.io" --slug centy-io
+centy create org "My Org" --description "Official projects"
+```
+
+### `centy list orgs`
+
+List all organizations.
+
+```bash
+centy list orgs [options]
+```
+
+**Aliases:** `centy list organizations`
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--json` | Output as JSON | `false` |
+
+**Examples:**
+
+```bash
+centy list orgs
+centy list organizations --json
+```
+
+### `centy get org`
+
+Get organization details by slug.
+
+```bash
+centy get org <slug> [options]
+```
+
+**Aliases:** `centy get organization`
+
+**Arguments:**
+
+- `slug`: Organization slug
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--json` | Output as JSON | `false` |
+
+**Examples:**
+
+```bash
+centy get org centy-io
+centy get organization my-org --json
+```
+
+### `centy update org`
+
+Update an organization's details.
+
+```bash
+centy update org <slug> [options]
+```
+
+**Aliases:** `centy update organization`
+
+**Arguments:**
+
+- `slug`: Organization slug
+
+**Options:**
+
+| Option | Description |
+|--------|-------------|
+| `--name`, `-n` | New organization name |
+| `--description`, `-d` | New organization description |
+| `--new-slug` | Rename the organization slug |
+| `--json` | Output as JSON |
+
+At least one of `--name`, `--description`, or `--new-slug` is required.
+
+**Examples:**
+
+```bash
+centy update org my-org --name "New Name"
+centy update org my-org --description "Updated description"
+centy update org my-org --new-slug new-slug
+```
+
+### `centy delete org`
+
+Delete an organization. The organization must have no projects assigned.
+
+```bash
+centy delete org <slug> [options]
+```
+
+**Aliases:** `centy delete organization`
+
+**Arguments:**
+
+- `slug`: Organization slug
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--force`, `-f` | Skip confirmation prompt | `false` |
+
+**Examples:**
+
+```bash
+centy delete org my-org --force
+centy delete organization old-org -f
+```
+
+### `centy project org`
+
+Assign or remove a project from an organization.
+
+```bash
+centy project org [slug] [options]
+```
+
+**Aliases:** `centy project organization`
+
+**Arguments:**
+
+- `slug`: Organization slug to assign (omit to remove from organization)
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--path`, `-p` | Path to the project | Current directory |
+| `--remove`, `-r` | Remove project from its organization | `false` |
+| `--json` | Output as JSON | `false` |
+
+**Examples:**
+
+```bash
+centy project org centy-io
+centy project org my-org --path /path/to/project
+centy project org --remove
+```
+
 ## Exit Codes
 
 | Code | Description |

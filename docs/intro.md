@@ -68,5 +68,6 @@ When you initialize Centy in a project, it creates a `.centy/` folder:
 - [Installation](./installation) - Install and set up Centy
 - [Configuration](./configuration) - Configure Centy for your project
 - [Managing Issues](./issues/) - Learn how to work with issues
+- [Organizations](./organizations) - Group projects into organizations
 - [Templates](./templates) - Create custom templates
 - [LLM Integration](./llm-integration) - Configure AI assistant behavior
